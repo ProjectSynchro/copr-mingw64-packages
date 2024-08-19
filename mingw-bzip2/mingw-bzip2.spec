@@ -7,8 +7,8 @@ Release:        14%{?dist}
 Summary:        MinGW port of bzip2 file compression utility
 
 License:        BSD
-URL:            http://www.bzip.org/
-Source0:        http://www.bzip.org/%{version}/bzip2-%{version}.tar.gz
+URL:            https://www.sourceware.org/bzip2/index.html
+Source0:        https://sourceware.org/pub/bzip2/bzip2-%{version}.tar.gz
 
 BuildArch:      noarch
 
@@ -229,7 +229,7 @@ rm $RPM_BUILD_ROOT%{ucrt64_libdir}/libbz2.la
 %{ucrt64_libdir}/libbz2.a
 
 %changelog
-* Mon August 19 2024 Jack Greiner <jack@emoss.org> - 1.0.8-14
+* Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 1.0.8-14
 - Add ucrt64 builds to spec.
 
 * Thu Jul 18 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.8-13
