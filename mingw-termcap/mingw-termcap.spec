@@ -17,8 +17,8 @@ Release:        38%{?dist}
 Summary:        MinGW terminal feature database
 
 License:        GPL-2.0-or-later
-URL:            ftp://ftp.gnu.org/gnu/termcap/
-Source0:        ftp://ftp.gnu.org/gnu/termcap/termcap-%{version}.tar.gz
+URL:            https://ftp.gnu.org/gnu/termcap
+Source0:        https://ftp.gnu.org/gnu/termcap/termcap-1.3.1.tar.gz
 # Fix implicit function declarations
 Patch0:         termcap-1.3.1-implicit.patch
 
