@@ -112,6 +112,9 @@ find %{buildroot} -name "*.la" -delete
 %{ucrt64_includedir}/SDL2
 
 %changelog
+* Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 2.8.0-3
+- Add ucrt64 builds to spec.
+
 * Thu Jul 18 2024 Fedora Release Engineering <releng@fedoraproject.org> - 2.8.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
 
