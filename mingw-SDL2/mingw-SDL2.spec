@@ -8,7 +8,7 @@ Summary:        MinGW Windows port of SDL2 cross-platform multimedia library
 
 License:        LGPL-2.0-or-later
 URL:            http://www.libsdl.org/
-Source0:        http://www.libsdl.org/release/SDL2-%{version}.tar.gz
+Source0:        https://github.com/libsdl-org/SDL/releases/download/release-%{version}/SDL2-%{version}.tar.gz
 
 BuildArch:      noarch
 
