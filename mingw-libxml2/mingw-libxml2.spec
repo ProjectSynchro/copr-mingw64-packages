@@ -2,8 +2,8 @@
 %{?mingw_package_header}
 
 Name:           mingw-libxml2
-Version:        2.12.8
-Release:        3%{?dist}
+Version:        2.12.9
+Release:        1%{?dist}
 Summary:        MinGW Windows libxml2 XML processing library
 
 License:        MIT
@@ -178,6 +178,9 @@ find %{buildroot} -name "*.la" -delete
 %{ucrt64_libdir}/libxml2.a
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 2.12.9-1
+- Update to 2.12.9
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 2.12.8-3
 - Add ucrt64 builds to spec.
 
