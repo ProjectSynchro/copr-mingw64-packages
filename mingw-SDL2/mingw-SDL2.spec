@@ -2,8 +2,8 @@
 %{?mingw_package_header}
 
 Name:           mingw-SDL2
-Version:        2.30.3
-Release:        3%{?dist}
+Version:        2.30.6
+Release:        1%{?dist}
 Summary:        MinGW Windows port of SDL2 cross-platform multimedia library
 
 License:        LGPL-2.0-or-later
@@ -175,6 +175,9 @@ rm -rf %{buildroot}%{ucrt64_datadir}/licenses
 %{ucrt64_libdir}/cmake/SDL2/*static*
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 2.30.6-1
+- Update to 2.30.6
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 2.30.3-3
 - Add ucrt64 builds to spec.
 
