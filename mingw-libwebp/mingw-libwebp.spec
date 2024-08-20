@@ -1,3 +1,4 @@
+%global mingw_build_ucrt64 1
 %{?mingw_package_header}
 
 Name:           mingw-libwebp
