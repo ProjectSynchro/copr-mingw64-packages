@@ -8,7 +8,7 @@ Summary:        MinGW compilation of Library and tools for the WebP format
 
 License:        BSD
 URL:            http://webmproject.org
-Source0:        https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-%{version.tar.gz
+Source0:        https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-%{version}.tar.gz
 
 BuildArch:      noarch
 
