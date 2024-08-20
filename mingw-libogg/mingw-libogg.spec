@@ -2,8 +2,8 @@
 %?mingw_package_header
 
 Name:           mingw-libogg
-Version:        1.3.3
-Release:        16%{?dist}
+Version:        1.3.4
+Release:        1%{?dist}
 Summary:        The Ogg bitstream file format library
 
 License:        BSD
@@ -123,6 +123,9 @@ find $RPM_BUILD_ROOT -name "*.la" -delete
 %{ucrt64_datadir}/aclocal/ogg.m4
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 1.3.4-1
+- Update to 1.3.4
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 1.3.3-16
 - Add ucrt64 builds to spec.
 
