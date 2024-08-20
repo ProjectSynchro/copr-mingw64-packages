@@ -2,8 +2,8 @@
 %{?mingw_package_header}
 
 Name:           mingw-libwebp
-Version:        1.2.4
-Release:        2%{?dist}
+Version:        1.4.0
+Release:        1%{?dist}
 Summary:        MinGW compilation of Library and tools for the WebP format
 
 License:        BSD
@@ -172,6 +172,9 @@ rm -fr %{buildroot}%{ucrt64_mandir}
 %{ucrt64_libdir}/libwebpmux.dll.a
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 1.4.0-1
+- Update to 1.4.0
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 1.2.4-2
 - Add ucrt64 builds to spec.
 
