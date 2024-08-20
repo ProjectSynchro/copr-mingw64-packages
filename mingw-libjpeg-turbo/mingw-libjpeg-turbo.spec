@@ -6,8 +6,8 @@
 %global build_programs 0
 
 Name:           mingw-libjpeg-turbo
-Version:        3.0.2
-Release:        3%{?dist}
+Version:        3.0.3
+Release:        1%{?dist}
 Summary:        MinGW Windows Libjpeg-turbo library
 
 License:        Zlib AND BSD-3-Clause AND MIT AND IJG
@@ -274,6 +274,9 @@ chmod -x README.md
 %{ucrt64_libdir}/libturbojpeg.a
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 3.0.3-1
+- Update to 3.0.3
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 3.0.2-3
 - Add ucrt64 builds to spec.
 
