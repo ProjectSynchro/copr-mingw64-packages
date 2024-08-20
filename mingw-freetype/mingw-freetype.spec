@@ -3,8 +3,8 @@
 
 Name:           mingw-freetype
 # NOTE See comment for Patch2 below
-Version:        2.13.2
-Release:        5%{?dist}
+Version:        2.13.3
+Release:        1%{?dist}
 Summary:        Free and portable font rendering engine
 
 License:        FTL OR GPL-2.0-or-later
@@ -166,6 +166,9 @@ rm -rf %{buildroot}%{mingw32_mandir} %{buildroot}%{mingw64_mandir} %{buildroot}%
 
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 2.13.3-1
+- Update to 2.13.3
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 1.0.8-14
 - Add ucrt64 builds to spec.
 
