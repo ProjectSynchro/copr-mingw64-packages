@@ -2,8 +2,8 @@
 %{?mingw_package_header}
 
 Name:           mingw-libpng
-Version:        1.6.40
-Release:        5%{?dist}
+Version:        1.6.43
+Release:        1%{?dist}
 Summary:        MinGW Windows Libpng library
 
 License:        Zlib
@@ -175,6 +175,9 @@ rm -rf %{buildroot}%{ucrt64_mandir}
 %{ucrt64_libdir}/libpng16.a
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 1.6.43-1
+- Update to 1.6.43
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 1.6.40-5
 - Add ucrt64 builds to spec.
 
