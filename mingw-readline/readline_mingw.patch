@@ -1,0 +1,57 @@
+diff -rupN readline-8.2/input.c readline-8.2-new/input.c
+--- readline-8.2/input.c	2022-09-26 17:53:27.000000000 +0200
++++ readline-8.2-new/input.c	2022-10-07 11:44:02.142758291 +0200
+@@ -49,7 +49,9 @@
+ 
+ #include <signal.h>
+ 
++#ifndef __MINGW32__
+ #include "posixselect.h"
++#endif
+ #include "posixtime.h"
+ 
+ #if defined (FIONREAD_IN_SYS_IOCTL)
+@@ -151,7 +153,9 @@ int rl_timeout_remaining (unsigned int *
+ 
+ int _rl_timeout_init (void);
+ int _rl_timeout_sigalrm_handler (void);
++#if defined (_POSIXSELECT_H_)
+ int _rl_timeout_select (int, fd_set *, fd_set *, fd_set *, const struct timeval *, const sigset_t *);
++#endif
+ 
+ static void _rl_timeout_handle (void);
+ #if defined (RL_TIMEOUT_USE_SIGALRM)
+@@ -534,6 +538,11 @@ reset_alarm ()
+   setitimer (ITIMER_REAL, &it, NULL);
+ }
+ #  else
++
++#    ifndef USEC_PER_SEC
++#      define USEC_PER_SEC 1000000
++#    endif
++
+ static int
+ set_alarm (unsigned int *secs, unsigned int *usecs)
+ {
+@@ -818,7 +827,7 @@ rl_getc (FILE *stream)
+       /* We know at this point that _rl_caught_signal == 0 */
+ 
+ #if defined (__MINGW32__)
+-      if (isatty (fd)
++      if (isatty (fd))
+ 	return (_getch ());	/* "There is no error return." */
+ #endif
+       result = 0;
+diff -rupN readline-8.2/parens.c readline-8.2-new/parens.c
+--- readline-8.2/parens.c	2022-09-26 17:53:27.000000000 +0200
++++ readline-8.2-new/parens.c	2022-10-07 11:16:05.059856917 +0200
+@@ -38,7 +38,9 @@
+ #  include <unistd.h>
+ #endif
+ 
++#ifndef __MINGW32__
+ #include "posixselect.h"
++#endif
+ 
+ #if defined (HAVE_STRING_H)
+ #  include <string.h>
