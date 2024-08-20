@@ -3,8 +3,8 @@
 
 Summary:        MinGW Windows port of the LibTIFF library
 Name:           mingw-libtiff
-Version:        4.4.0
-Release:        7%{?dist}
+Version:        4.6.0
+Release:        1%{?dist}
 License:        libtiff
 URL:            http://www.simplesystems.org/libtiff/
 Source:         https://download.osgeo.org/libtiff/tiff-%{version}.tar.xz
@@ -182,6 +182,9 @@ find $RPM_BUILD_ROOT -name "*.la" -delete
 %{ucrt64_libdir}/libtiffxx.a
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 4.6.0-1
+- Update to 4.6.0
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 4.4.0-7
 - Add ucrt64 builds to spec.
 
