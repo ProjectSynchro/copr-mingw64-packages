@@ -114,18 +114,39 @@ rm -rf %{buildroot}%{ucrt64_docdir}
 
 # Win32
 %files -n mingw32-enet
+%license LICENSE
+
+%{mingw32_bindir}/libenet-7.dll
+%{mingw32_includedir}/enet
+%{mingw32_libdir}/pkgconfig/libenet.pc
 
 %files -n mingw32-enet-static
+%{mingw32_libdir}/libenet.a
+%{mingw32_libdir}/libenet.dll.a
 
 # Win64
 %files -n mingw64-enet
+%license LICENSE
+
+%{mingw64_bindir}/libenet-7.dll
+%{mingw64_includedir}/enet
+%{mingw64_libdir}/pkgconfig/libenet.pc
 
 %files -n mingw64-enet-static
+%{mingw64_libdir}/libenet.a
+%{mingw64_libdir}/libenet.dll.a
 
 # UCRT64
 %files -n ucrt64-enet
+%license LICENSE
+
+%{ucrt64_bindir}/libenet-7.dll
+%{ucrt64_includedir}/enet
+%{ucrt64_libdir}/pkgconfig/libenet.pc
 
 %files -n ucrt64-enet-static
+%{ucrt64_libdir}/libenet.a
+%{ucrt64_libdir}/libenet.dll.a
 
 %changelog
 * Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 1.3.18-1
