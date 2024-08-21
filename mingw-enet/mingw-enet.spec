@@ -31,9 +31,8 @@ BuildRequires:  ucrt64-gcc
 BuildRequires:  ucrt64-gcc-c++
 BuildRequires:  ucrt64-binutils
 
-BuildRequires:  nasm
-BuildRequires:  cmake
-BuildRequires:  make
+BuildRequires: make
+BuildRequires: automake autoconf libtool
 
 
 %description
