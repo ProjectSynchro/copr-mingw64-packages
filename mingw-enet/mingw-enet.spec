@@ -3,7 +3,7 @@
 
 Name:           mingw-enet
 Version:        1.3.18
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        MinGW Windows enet library
 
 License:        MIT
@@ -112,6 +112,11 @@ rm -rf %{buildroot}%{mingw32_docdir}
 rm -rf %{buildroot}%{mingw64_docdir}
 rm -rf %{buildroot}%{ucrt64_docdir}
 
+# Patch pkg-config file to fix linker issues.
+sed -i 's/-lenet/-lenet -lws2_32 -lwinmm/' %{buildroot}%{mingw32_libdir}/pkgconfig/libenet.pc
+sed -i 's/-lenet/-lenet -lws2_32 -lwinmm/' %{buildroot}%{mingw64_libdir}/pkgconfig/libenet.pc
+sed -i 's/-lenet/-lenet -lws2_32 -lwinmm/' %{buildroot}%{ucrt64_libdir}/pkgconfig/libenet.pc
+
 # Win32
 %files -n mingw32-enet
 %license LICENSE
@@ -149,5 +154,8 @@ rm -rf %{buildroot}%{ucrt64_docdir}
 %{ucrt64_libdir}/libenet.dll.a
 
 %changelog
+* Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 1.3.18-2
+- Fix linker issues when using pkg-config
+
 * Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 1.3.18-1
 - Add initial enet mingw spec
