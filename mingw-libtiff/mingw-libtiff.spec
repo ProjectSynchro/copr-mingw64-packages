@@ -141,9 +141,9 @@ find $RPM_BUILD_ROOT -name "*.la" -delete
 
 # Win32
 %files -n mingw32-libtiff
-%doc COPYRIGHT README.md RELEASE-DATE VERSION TODO ChangeLog
-%{mingw32_bindir}/libtiff-5.dll
-%{mingw32_bindir}/libtiffxx-5.dll
+%doc LICENSE.md README.md RELEASE-DATE VERSION TODO ChangeLog
+%{mingw32_bindir}/libtiff-6.dll
+%{mingw32_bindir}/libtiffxx-6.dll
 %{mingw32_includedir}/*
 %{mingw32_libdir}/libtiff.dll.a
 %{mingw32_libdir}/libtiffxx.dll.a
@@ -155,9 +155,9 @@ find $RPM_BUILD_ROOT -name "*.la" -delete
 
 # Win64
 %files -n mingw64-libtiff
-%doc COPYRIGHT README.md RELEASE-DATE VERSION TODO ChangeLog
-%{mingw64_bindir}/libtiff-5.dll
-%{mingw64_bindir}/libtiffxx-5.dll
+%doc LICENSE.md README.md RELEASE-DATE VERSION TODO ChangeLog
+%{mingw64_bindir}/libtiff-6.dll
+%{mingw64_bindir}/libtiffxx-6.dll
 %{mingw64_includedir}/*
 %{mingw64_libdir}/libtiff.dll.a
 %{mingw64_libdir}/libtiffxx.dll.a
@@ -169,9 +169,9 @@ find $RPM_BUILD_ROOT -name "*.la" -delete
 
 # UCRT64
 %files -n ucrt64-libtiff
-%doc COPYRIGHT README.md RELEASE-DATE VERSION TODO ChangeLog
-%{ucrt64_bindir}/libtiff-5.dll
-%{ucrt64_bindir}/libtiffxx-5.dll
+%doc LICENSE.md README.md RELEASE-DATE VERSION TODO ChangeLog
+%{ucrt64_bindir}/libtiff-6.dll
+%{ucrt64_bindir}/libtiffxx-6.dll
 %{ucrt64_includedir}/*
 %{ucrt64_libdir}/libtiff.dll.a
 %{ucrt64_libdir}/libtiffxx.dll.a
