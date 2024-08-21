@@ -115,15 +115,18 @@ rm -fr %{buildroot}%{ucrt64_mandir}
 %{mingw32_bindir}/libwebpdecoder-3.dll
 %{mingw32_bindir}/libwebpdemux-2.dll
 %{mingw32_bindir}/libwebpmux-3.dll
+%{mingw32_bindir}/libsharpyuv-0.dll
 %{mingw32_includedir}/webp
 %{mingw32_libdir}/pkgconfig/libwebp.pc
 %{mingw32_libdir}/pkgconfig/libwebpdecoder.pc
 %{mingw32_libdir}/pkgconfig/libwebpdemux.pc
 %{mingw32_libdir}/pkgconfig/libwebpmux.pc
+%{mingw32_libdir}/pkgconfig/libsharpyuv.pc
 %{mingw32_libdir}/libwebp.dll.a
 %{mingw32_libdir}/libwebpdecoder.dll.a
 %{mingw32_libdir}/libwebpdemux.dll.a
 %{mingw32_libdir}/libwebpmux.dll.a
+%{mingw32_libdir}/libsharpyuv.dll.a
 
 # Win64
 %files -n mingw64-libwebp
@@ -138,15 +141,18 @@ rm -fr %{buildroot}%{ucrt64_mandir}
 %{mingw64_bindir}/libwebpdecoder-3.dll
 %{mingw64_bindir}/libwebpdemux-2.dll
 %{mingw64_bindir}/libwebpmux-3.dll
+%{mingw64_bindir}/libsharpyuv-0.dll
 %{mingw64_includedir}/webp
 %{mingw64_libdir}/pkgconfig/libwebp.pc
 %{mingw64_libdir}/pkgconfig/libwebpdecoder.pc
 %{mingw64_libdir}/pkgconfig/libwebpdemux.pc
 %{mingw64_libdir}/pkgconfig/libwebpmux.pc
+%{mingw64_libdir}/pkgconfig/libsharpyuv.pc
 %{mingw64_libdir}/libwebp.dll.a
 %{mingw64_libdir}/libwebpdecoder.dll.a
 %{mingw64_libdir}/libwebpdemux.dll.a
 %{mingw64_libdir}/libwebpmux.dll.a
+%{mingw64_libdir}/libsharpyuv.dll.a
 
 # UCRT64
 %files -n ucrt64-libwebp
@@ -161,19 +167,23 @@ rm -fr %{buildroot}%{ucrt64_mandir}
 %{ucrt64_bindir}/libwebpdecoder-3.dll
 %{ucrt64_bindir}/libwebpdemux-2.dll
 %{ucrt64_bindir}/libwebpmux-3.dll
+%{ucrt64_bindir}/libsharpyuv-0.dll
 %{ucrt64_includedir}/webp
 %{ucrt64_libdir}/pkgconfig/libwebp.pc
 %{ucrt64_libdir}/pkgconfig/libwebpdecoder.pc
 %{ucrt64_libdir}/pkgconfig/libwebpdemux.pc
 %{ucrt64_libdir}/pkgconfig/libwebpmux.pc
+%{ucrt64_libdir}/pkgconfig/libsharpyuv.pc
 %{ucrt64_libdir}/libwebp.dll.a
 %{ucrt64_libdir}/libwebpdecoder.dll.a
 %{ucrt64_libdir}/libwebpdemux.dll.a
 %{ucrt64_libdir}/libwebpmux.dll.a
+%{ucrt64_libdir}/libsharpyuv.dll.a
 
 %changelog
 * Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 1.4.0-1
 - Update to 1.4.0
+- Add libsharpyuv dependencies.
 
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 1.2.4-2
 - Add ucrt64 builds to spec.
