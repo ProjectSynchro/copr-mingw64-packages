@@ -103,10 +103,6 @@ autoreconf -vif
 # Drop all .la files
 find %{buildroot} -name "*.la" -delete
 
-# Remove redundent man pages
-rm -rf %{buildroot}%{mingw32_mandir} %{buildroot}%{mingw64_mandir} %{buildroot}%{ucrt64_mandir}
-
-
 # Remove manual pages and docs which duplicate Fedora native.
 rm -rf %{buildroot}%{mingw32_mandir}
 rm -rf %{buildroot}%{mingw64_mandir}
@@ -124,63 +120,63 @@ rm -f %{buildroot}%{ucrt64_bindir}/*.exe
 
 # Win32
 %files -n mingw32-enet
-%license LICENSE.md
-%doc README.* ChangeLog.md
+#%license LICENSE.md
+#%doc README.* ChangeLog.md
 %if %build_programs
-%{mingw32_bindir}/*.exe
+#%{mingw32_bindir}/*.exe
 %endif
-%{mingw32_bindir}/libjpeg-62.dll
-%{mingw32_includedir}/jconfig.h
-%{mingw32_includedir}/jerror.h
-%{mingw32_includedir}/jmorecfg.h
-%{mingw32_includedir}/jpeglib.h
-%{mingw32_includedir}/jpegint.h
-%{mingw32_libdir}/cmake/libjpeg-turbo/
-%{mingw32_libdir}/libjpeg.dll.a
-%{mingw32_libdir}/pkgconfig/libjpeg.pc
+#%{mingw32_bindir}/libjpeg-62.dll
+#%{mingw32_includedir}/jconfig.h
+#%{mingw32_includedir}/jerror.h
+#%{mingw32_includedir}/jmorecfg.h
+#%{mingw32_includedir}/jpeglib.h
+#%{mingw32_includedir}/jpegint.h
+#%{mingw32_libdir}/cmake/libjpeg-turbo/
+#%{mingw32_libdir}/libjpeg.dll.a
+#%{mingw32_libdir}/pkgconfig/libjpeg.pc
 
 %files -n mingw32-enet-static
-%{mingw32_libdir}/libjpeg.a
+#%{mingw32_libdir}/libjpeg.a
 
 # Win64
 %files -n mingw64-enet
-%license LICENSE.md
-%doc README.* ChangeLog.md
+#%license LICENSE.md
+#%doc README.* ChangeLog.md
 %if %build_programs
-%{mingw64_bindir}/*.exe
+#%{mingw64_bindir}/*.exe
 %endif
-%{mingw64_bindir}/libjpeg-62.dll
-%{mingw64_includedir}/jconfig.h
-%{mingw64_includedir}/jerror.h
-%{mingw64_includedir}/jmorecfg.h
-%{mingw64_includedir}/jpeglib.h
-%{mingw64_includedir}/jpegint.h
-%{mingw64_libdir}/cmake/libjpeg-turbo/
-%{mingw64_libdir}/libjpeg.dll.a
-%{mingw64_libdir}/pkgconfig/libjpeg.pc
+#%{mingw64_bindir}/libjpeg-62.dll
+#%{mingw64_includedir}/jconfig.h
+#%{mingw64_includedir}/jerror.h
+#%{mingw64_includedir}/jmorecfg.h
+#%{mingw64_includedir}/jpeglib.h
+#%{mingw64_includedir}/jpegint.h
+#%{mingw64_libdir}/cmake/libjpeg-turbo/
+#%{mingw64_libdir}/libjpeg.dll.a
+#%{mingw64_libdir}/pkgconfig/libjpeg.pc
 
 %files -n mingw64-enet-static
-%{mingw64_libdir}/libjpeg.a
+#%{mingw64_libdir}/libjpeg.a
 
 # UCRT64
 %files -n ucrt64-enet
-%license LICENSE.md
-%doc README.* ChangeLog.md
+#%license LICENSE.md
+#%doc README.* ChangeLog.md
 %if %build_programs
-%{ucrt64_bindir}/*.exe
+#%{ucrt64_bindir}/*.exe
 %endif
-%{ucrt64_bindir}/libjpeg-62.dll
-%{ucrt64_includedir}/jconfig.h
-%{ucrt64_includedir}/jerror.h
-%{ucrt64_includedir}/jmorecfg.h
-%{ucrt64_includedir}/jpeglib.h
-%{ucrt64_includedir}/jpegint.h
-%{ucrt64_libdir}/cmake/libjpeg-turbo/
-%{ucrt64_libdir}/libjpeg.dll.a
-%{ucrt64_libdir}/pkgconfig/libjpeg.pc
+#%{ucrt64_bindir}/libjpeg-62.dll
+#%{ucrt64_includedir}/jconfig.h
+#%{ucrt64_includedir}/jerror.h
+#%{ucrt64_includedir}/jmorecfg.h
+#%{ucrt64_includedir}/jpeglib.h
+#%{ucrt64_includedir}/jpegint.h
+#%{ucrt64_libdir}/cmake/libjpeg-turbo/
+#%{ucrt64_libdir}/libjpeg.dll.a
+#%{ucrt64_libdir}/pkgconfig/libjpeg.pc
 
 %files -n ucrt64-enet-static
-%{ucrt64_libdir}/libjpeg.a
+#%{ucrt64_libdir}/libjpeg.a
 
 %changelog
 * Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 1.3.18-1
