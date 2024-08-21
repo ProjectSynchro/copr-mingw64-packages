@@ -14,7 +14,6 @@ License:        Zlib AND BSD-3-Clause AND MIT AND IJG
 URL:            https://github.com/libjpeg-turbo/libjpeg-turbo
 Source0:        %{url}/releases/download/%{version}/libjpeg-turbo-%{version}.tar.gz
 Patch0:         libjpeg-turbo-cmake.patch
-Patch1:         libjpeg-turbo-CET.patch
 
 BuildArch:      noarch
 
