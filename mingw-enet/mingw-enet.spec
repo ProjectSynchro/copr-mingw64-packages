@@ -88,6 +88,8 @@ Static version of the MinGW Windows enet library.
 %prep
 %autosetup -n enet-%{version} -p1
 
+# We are using a Github snapshot so we have to run autoreconf ourselves.
+autoreconf -vif
 
 %build
 %mingw_configure \
