@@ -276,6 +276,7 @@ chmod -x README.md
 %changelog
 * Tue Aug 20 2024 Jack Greiner <jack@emoss.org> - 3.0.3-1
 - Update to 3.0.3
+- Update patches for 3.0.3.
 
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 3.0.2-3
 - Add ucrt64 builds to spec.
