@@ -47,6 +47,9 @@ and variable bitrates from 16 to 128 kbps/channel.
 
 This package contains the MinGW Windows cross compiled libvorbis library.
 
+%description -n mingw32-libvorbis-static
+Static version of the MinGW Win32 compiled libvorbis library.
+
 # Win64
 %package -n mingw64-libvorbis
 Summary:        MinGW Windows libvorbis library
@@ -58,6 +61,9 @@ and variable bitrates from 16 to 128 kbps/channel.
 
 This package contains the MinGW Windows cross compiled libvorbis library.
 
+%description -n mingw64-libvorbis-static
+Static version of the MinGW Win64 compiled libvorbis library.
+
 # UCRT64
 %package -n ucrt64-libvorbis
 Summary:        MinGW Windows libvorbis library
@@ -68,6 +74,9 @@ general-purpose compressed audio format for audio and music at fixed
 and variable bitrates from 16 to 128 kbps/channel.
 
 This package contains the MinGW Windows cross compiled libvorbis library.
+
+%description -n ucrt64-libvorbis-static
+Static version of the MinGW UCRT64 compiled libvorbis library.
 
 %{?mingw_debug_package}
 
