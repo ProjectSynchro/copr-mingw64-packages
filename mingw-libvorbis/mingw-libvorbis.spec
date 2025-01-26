@@ -3,7 +3,7 @@
 
 Name:           mingw-libvorbis
 Version:        1.3.7
-Release:        13%{?dist}
+Release:        14%{?dist}
 Summary:        MinGW Windows libvorbis library
 
 License:        BSD
@@ -77,7 +77,7 @@ This package contains the MinGW Windows cross compiled libvorbis library.
 
 
 %build
-%mingw_configure --disable-static
+%mingw_configure --enable-shared --enable-static
 %mingw_make_build
 
 
@@ -106,6 +106,11 @@ rm -rf %{buildroot}%{ucrt64_datadir}/doc/
 %{mingw32_libdir}/pkgconfig/vorbisfile.pc
 %{mingw32_datadir}/aclocal/vorbis.m4
 
+%files -n mingw32-libvorbis-static
+%{mingw32_libdir}/libvorbis
+%{mingw32_libdir}/libvorbisfile.a
+%{mingw32_libdir}/libvorbisenc.a
+
 # Win64
 %files -n mingw64-libvorbis
 %license COPYING
@@ -120,6 +125,11 @@ rm -rf %{buildroot}%{ucrt64_datadir}/doc/
 %{mingw64_libdir}/pkgconfig/vorbisenc.pc
 %{mingw64_libdir}/pkgconfig/vorbisfile.pc
 %{mingw64_datadir}/aclocal/vorbis.m4
+
+%files -n mingw64-libvorbis-static
+%{mingw64_libdir}/libvorbis
+%{mingw64_libdir}/libvorbisfile.a
+%{mingw64_libdir}/libvorbisenc.a
 
 # UCRT64
 %files -n ucrt64-libvorbis
@@ -136,7 +146,15 @@ rm -rf %{buildroot}%{ucrt64_datadir}/doc/
 %{ucrt64_libdir}/pkgconfig/vorbisfile.pc
 %{ucrt64_datadir}/aclocal/vorbis.m4
 
+%files -n ucrt64-libvorbis-static
+%{ucrt64_libdir}/libvorbis
+%{ucrt64_libdir}/libvorbisfile.a
+%{ucrt64_libdir}/libvorbisenc.a
+
 %changelog
+* Sun Jan 26 2025 Jack Greiner <jack@emoss.org> - 1.3.7-14
+- Enabled static builds
+
 * Mon Aug 19 2024 Jack Greiner <jack@emoss.org> - 1.3.7-13
 - Add ucrt64 builds to spec.
 
