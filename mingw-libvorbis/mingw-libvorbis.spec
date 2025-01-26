@@ -128,7 +128,7 @@ rm -rf %{buildroot}%{ucrt64_datadir}/doc/
 %{mingw32_datadir}/aclocal/vorbis.m4
 
 %files -n mingw32-libvorbis-static
-%{mingw32_libdir}/libvorbis
+%{mingw32_libdir}/libvorbis.a
 %{mingw32_libdir}/libvorbisfile.a
 %{mingw32_libdir}/libvorbisenc.a
 
@@ -148,7 +148,7 @@ rm -rf %{buildroot}%{ucrt64_datadir}/doc/
 %{mingw64_datadir}/aclocal/vorbis.m4
 
 %files -n mingw64-libvorbis-static
-%{mingw64_libdir}/libvorbis
+%{mingw64_libdir}/libvorbis.a
 %{mingw64_libdir}/libvorbisfile.a
 %{mingw64_libdir}/libvorbisenc.a
 
@@ -168,7 +168,7 @@ rm -rf %{buildroot}%{ucrt64_datadir}/doc/
 %{ucrt64_datadir}/aclocal/vorbis.m4
 
 %files -n ucrt64-libvorbis-static
-%{ucrt64_libdir}/libvorbis
+%{ucrt64_libdir}/libvorbis.a
 %{ucrt64_libdir}/libvorbisfile.a
 %{ucrt64_libdir}/libvorbisenc.a
 
