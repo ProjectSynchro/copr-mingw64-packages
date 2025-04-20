@@ -1,13 +1,15 @@
 %global mingw_build_ucrt64 1
+%global snapshot 20250117
+
 %{?mingw_package_header}
 
 Name:           mingw-luajit
-Version:        2.1-20250117
-Release:        1%{?dist}
+Version:        2.1
+Release:        1.%{snapshot}%{?dist}
 Summary:        Just-in-time compiler and drop-in replacement for Lua 5.1 (MinGW Windows)
 License:        spdx:MIT
 URL:            http://luajit.org/
-Source0:        https://github.com/openresty/luajit2/archive/refs/tags/v%{version}.tar.gz
+Source0:        https://github.com/openresty/luajit2/archive/refs/tags/v%{version}-%{snapshot}.tar.gz
 
 Patch1:         001-mintty-cygpty-isatty.patch
 Patch2:         002-fix-pkg-config-file.patch
