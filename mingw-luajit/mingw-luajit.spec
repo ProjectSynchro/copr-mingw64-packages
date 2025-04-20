@@ -83,7 +83,7 @@ Requires:       ucrt64-luajit = %{version}-%{release}
 Static build of the UCRT64 LuaJIT library.
 
 %prep
-%autosetup -n luajit-%{version} -p1
+%autosetup -n luajit-%{version}-%{snapshot} -p1
 # Remove unwanted files and apply patches
 rm -f src/iscygpty.{c,h} || true
 %autopatch -m 1
