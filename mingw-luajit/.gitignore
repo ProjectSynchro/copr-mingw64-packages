@@ -1,3 +1,5 @@
-*-build
+*-build/
+noarch/
 *.log
 *.tar.gz
+*.rpm
