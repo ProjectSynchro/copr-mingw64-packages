@@ -1,0 +1,31 @@
+--- a/Makefile	2025-01-17 00:03:34.000000000 -0500
++++ b/Makefile	2025-04-24 17:36:47.904828068 -0400
+@@ -118,6 +118,18 @@
+   SED_PC+= -e "s| -Wl,-E||"
+ endif
+ 
++ifeq (Windows,$(TARGET_SYS))
++  FILE_T := $(FILE_T).exe
++  INSTALL_ANAME= libluajit-$(ABIVER).dll.a
++  INSTALL_TNAME := $(INSTALL_TNAME).exe
++  INSTALL_TSYMNAME := $(INSTALL_TSYMNAME).exe
++  INSTALL_T := $(INSTALL_BIN)/$(INSTALL_TNAME)
++  INSTALL_TSYM := $(INSTALL_BIN)/$(INSTALL_TSYMNAME)
++  NODOTABIVER := $(shell awk -F '= *' '/^NODOTABIVER[ \t]*=/{print $$2; exit}' src/Makefile)
++  FILE_DLL := lua$(NODOTABIVER).dll
++  INSTALL_DLL := $(INSTALL_BIN)/$(FILE_DLL)
++endif
++
+ ##############################################################################
+ 
+ INSTALL_DEP= src/luajit
+@@ -145,6 +157,9 @@
+ 	cd src && $(INSTALL_F) $(FILES_INC) $(INSTALL_INC)
+ 	cd src/jit && $(INSTALL_F) $(FILES_JITLIB) $(INSTALL_JITLIB)
+ 	$(SYMLINK) $(INSTALL_TNAME) $(INSTALL_TSYM)
++ifneq ($(FILE_DLL),)
++	cd src && test -f $(FILE_DLL) && $(INSTALL_X) $(FILE_DLL) $(INSTALL_DLL) || :
++endif
+ 	@echo "==== Successfully installed LuaJIT $(VERSION) to $(PREFIX) ===="
+ 
+ uninstall:
