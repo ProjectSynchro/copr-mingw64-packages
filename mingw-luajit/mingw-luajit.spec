@@ -107,7 +107,8 @@ export TARGET_CFLAGS="%{mingw64_cflags}"
 export TARGET_LDFLAGS="%{mingw64_ldflags}"
 export TARGET_LD="%{mingw64_cc}"
 
-make -C build_win64 amalg BUILDMODE=dynamic
+make -C build_win64 amalg BUILDMODE=static
+make -C build_win64
 %endif
 
 %if 0%{?mingw_build_ucrt64}
@@ -117,7 +118,8 @@ export TARGET_CFLAGS="%{ucrt64_cflags}"
 export TARGET_LDFLAGS="%{ucrt64_ldflags}"
 export TARGET_LD="%{ucrt64_cc}"
 
-make -C build_ucrt64 amalg BUILDMODE=dynamic
+make -C build_ucrt64 amalg BUILDMODE=static
+make -C build_ucrt64
 %endif
 
 %if 0%{?mingw_build_win32}
@@ -129,7 +131,8 @@ export TARGET_CFLAGS="%{mingw32_cflags}"
 export TARGET_LDFLAGS="%{mingw32_ldflags}"
 export TARGET_LD="%{mingw32_cc}"
 
-CC="" make -C build_win32 amalg BUILDMODE=dynamic
+CC="" make -C build_win32 amalg BUILDMODE=static
+CC="" make -C build_win32
 %endif
 
 %install
@@ -195,6 +198,7 @@ rm -rf %{buildroot}%{ucrt64_docdir}
 %files -n mingw32-luajit
 %license COPYRIGHT
 %{mingw32_bindir}/lua51.dll
+%{mingw32_libdir}/libluajit-5.1.dll.a
 %{mingw32_bindir}/luajit*.exe
 %{mingw32_includedir}/luajit-2.1/*.h
 %{mingw32_includedir}/luajit-2.1/*.hpp
@@ -207,6 +211,7 @@ rm -rf %{buildroot}%{ucrt64_docdir}
 %files -n mingw64-luajit
 %license COPYRIGHT
 %{mingw64_bindir}/lua51.dll
+%{mingw64_libdir}/libluajit-5.1.dll.a
 %{mingw64_bindir}/luajit*.exe
 %{mingw64_includedir}/luajit-2.1/*.h
 %{mingw64_includedir}/luajit-2.1/*.hpp
@@ -219,6 +224,7 @@ rm -rf %{buildroot}%{ucrt64_docdir}
 %files -n ucrt64-luajit
 %license COPYRIGHT
 %{ucrt64_bindir}/lua51.dll
+%{ucrt64_libdir}/libluajit-5.1.dll.a
 %{ucrt64_bindir}/luajit*.exe
 %{ucrt64_includedir}/luajit-2.1/*.h
 %{ucrt64_includedir}/luajit-2.1/*.hpp
