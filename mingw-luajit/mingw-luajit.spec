@@ -8,7 +8,7 @@
 
 Name:           mingw-luajit
 Version:        2.1
-Release:        1.%{snapshot}%{?dist}
+Release:        2.%{snapshot}%{?dist}
 Summary:        Just-in-time compiler and drop-in replacement for Lua 5.1 (MinGW Windows)
 License:        spdx:MIT
 URL:            http://luajit.org/
@@ -233,5 +233,7 @@ rm -rf %{buildroot}%{ucrt64_docdir}
 %endif
 
 %changelog
+* Thu Apr 24 2025 Jack Greiner <jack@emoss.org> - 2.1-20250117-2
+- Fix missing libluajit-5.1.dll.a in build
 * Sun Apr 20 2025 Jack Greiner <jack@emoss.org> - 2.1-20250117-1
 - Add initial luajit mingw spec
