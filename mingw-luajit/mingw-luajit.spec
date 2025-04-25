@@ -1,6 +1,6 @@
 %global mingw_build_ucrt64 1
 # Can't seem to get 32-bit cross-builds working.
-%global mingw_build_win32 0
+%global mingw_build_win32 1
 
 %global snapshot 20250117
 
@@ -107,8 +107,7 @@ export TARGET_CFLAGS="%{mingw64_cflags}"
 export TARGET_LDFLAGS="%{mingw64_ldflags}"
 export TARGET_LD="%{mingw64_cc}"
 
-make -C build_win64 amalg BUILDMODE=static
-make -C build_win64
+make -C build_win64 amalg
 %endif
 
 %if 0%{?mingw_build_ucrt64}
@@ -118,8 +117,7 @@ export TARGET_CFLAGS="%{ucrt64_cflags}"
 export TARGET_LDFLAGS="%{ucrt64_ldflags}"
 export TARGET_LD="%{ucrt64_cc}"
 
-make -C build_ucrt64 amalg BUILDMODE=static
-make -C build_ucrt64
+make -C build_ucrt64 amalg
 %endif
 
 %if 0%{?mingw_build_win32}
@@ -131,8 +129,7 @@ export TARGET_CFLAGS="%{mingw32_cflags}"
 export TARGET_LDFLAGS="%{mingw32_ldflags}"
 export TARGET_LD="%{mingw32_cc}"
 
-CC="" make -C build_win32 amalg BUILDMODE=static
-CC="" make -C build_win32
+CC="" make -C build_win32 amalg
 %endif
 
 %install
@@ -145,27 +142,30 @@ export CFLAGS=""
 export HOST_LDFLAGS="$LDFLAGS"
 export LDFLAGS=""
 
+# Set the target system to Windows
+export TARGET_SYS=Windows
+
 %if 0%{?mingw_build_win64}
 export CROSS="%{mingw64_target}-"
 
-export TARGET_SYS=Windows 
 export TARGET_CFLAGS="%{mingw64_cflags}"
 export TARGET_LDFLAGS="%{mingw64_ldflags}"
 export TARGET_LD="%{mingw64_cc}"
 
 make INSTALL="/usr/bin/install -p" DESTDIR=$RPM_BUILD_ROOT PREFIX="%{mingw64_prefix}" -C build_ucrt64 install
+install -m 0755 build_win64/src/libluajit-5.1.dll.a $RPM_BUILD_ROOT%{mingw64_libdir}/libluajit-5.1.dll.a
 
 %endif
 
 %if 0%{?mingw_build_ucrt64}
 export CROSS="%{ucrt64_target}-"
 
-export TARGET_SYS=Windows 
 export TARGET_CFLAGS="%{ucrt64_cflags}"
 export TARGET_LDFLAGS="%{ucrt64_ldflags}"
 export TARGET_LD="%{ucrt64_cc}"
 
 make INSTALL="/usr/bin/install -p" DESTDIR=$RPM_BUILD_ROOT PREFIX="%{ucrt64_prefix}" -C build_ucrt64 install
+install -m 0755 build_win64/src/libluajit-5.1.dll.a $RPM_BUILD_ROOT%{ucrt64_libdir}/libluajit-5.1.dll.a
 
 %endif
 
@@ -173,12 +173,12 @@ make INSTALL="/usr/bin/install -p" DESTDIR=$RPM_BUILD_ROOT PREFIX="%{ucrt64_pref
 export HOST_CC="gcc -m32"
 export CROSS="%{mingw32_target}-"
 
-export TARGET_SYS=Windows 
 export TARGET_CFLAGS="%{mingw32_cflags}"
 export TARGET_LDFLAGS="%{mingw32_ldflags}"
 export TARGET_LD="%{mingw32_cc}"
 
 make INSTALL="/usr/bin/install -p" DESTDIR=$RPM_BUILD_ROOT PREFIX="%{mingw32_prefix}" -C build_win32 install
+install -m 0755 build_win64/src/libluajit-5.1.dll.a $RPM_BUILD_ROOT%{mingw32_libdir}/libluajit-5.1.dll.a
 
 %endif
 
@@ -233,6 +233,8 @@ rm -rf %{buildroot}%{ucrt64_docdir}
 %endif
 
 %changelog
+* Thu Apr 24 2025 Jack Greiner <jack@emoss.org> - 2.1-20250117-3
+- Switch to default amalagamated build
 * Thu Apr 24 2025 Jack Greiner <jack@emoss.org> - 2.1-20250117-2
 - Fix missing libluajit-5.1.dll.a in build
 * Sun Apr 20 2025 Jack Greiner <jack@emoss.org> - 2.1-20250117-1
