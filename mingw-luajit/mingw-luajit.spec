@@ -1,6 +1,4 @@
 %global mingw_build_ucrt64 1
-# Can't seem to get 32-bit cross-builds working.
-%global mingw_build_win32 0
 
 %global snapshot 20250117
 
@@ -121,15 +119,17 @@ make -C build_ucrt64 amalg
 %endif
 
 %if 0%{?mingw_build_win32}
-
-export HOST_CC="gcc -m32"
 export CROSS="%{mingw32_target}-"
 
+# We need to make sure that we pass in -m32 to ensure that we are building the 32-bit
+# version of the toolchain
+export HOST_CFLAGS="$HOST_CFLAGS -m32"
+export HOST_LDFLAGS="$HOST_LDFLAGS -m32"
 export TARGET_CFLAGS="%{mingw32_cflags}"
 export TARGET_LDFLAGS="%{mingw32_ldflags}"
 export TARGET_LD="%{mingw32_cc}"
 
-CC="" make -C build_win32 amalg
+make -C build_win32 amalg
 %endif
 
 %install
@@ -170,9 +170,12 @@ install -m 0755 build_win64/src/libluajit-5.1.dll.a $RPM_BUILD_ROOT%{ucrt64_libd
 %endif
 
 %if 0%{?mingw_build_win32}
-export HOST_CC="gcc -m32"
 export CROSS="%{mingw32_target}-"
 
+# We need to make sure that we pass in -m32 to ensure that we are building the 32-bit
+# version of the toolchain
+export HOST_CFLAGS="$HOST_CFLAGS -m32"
+export HOST_LDFLAGS="$HOST_LDFLAGS -m32"
 export TARGET_CFLAGS="%{mingw32_cflags}"
 export TARGET_LDFLAGS="%{mingw32_ldflags}"
 export TARGET_LD="%{mingw32_cc}"
@@ -234,7 +237,7 @@ rm -rf %{buildroot}%{ucrt64_docdir}
 
 %changelog
 * Thu Apr 24 2025 Jack Greiner <jack@emoss.org> - 2.1-20250117-3
-- Switch to default amalagamated build
+- Switch to default amalagamated build and re-enable 32-bit build
 * Thu Apr 24 2025 Jack Greiner <jack@emoss.org> - 2.1-20250117-2
 - Fix missing libluajit-5.1.dll.a in build
 * Sun Apr 20 2025 Jack Greiner <jack@emoss.org> - 2.1-20250117-1
