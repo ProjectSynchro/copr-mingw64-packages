@@ -1,6 +1,6 @@
 %global mingw_build_ucrt64 1
 # Can't seem to get 32-bit cross-builds working.
-%global mingw_build_win32 1
+%global mingw_build_win32 0
 
 %global snapshot 20250117
 
