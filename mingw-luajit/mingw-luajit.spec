@@ -31,6 +31,9 @@ BuildRequires:  ucrt64-gcc-c++
 BuildRequires:  ucrt64-binutils
 
 BuildRequires: make git gcc gcc-c++ sed
+%ifarch x86_64
+BuildRequires: glibc-devel(x86-32)
+%endif
 
 %description
 LuaJIT just-in-time compiler and drop-in replacement for Lua 5.1.
