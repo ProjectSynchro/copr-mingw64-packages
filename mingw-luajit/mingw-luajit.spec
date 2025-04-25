@@ -6,7 +6,7 @@
 
 Name:           mingw-luajit
 Version:        2.1
-Release:        2.%{snapshot}%{?dist}
+Release:        3.%{snapshot}%{?dist}
 Summary:        Just-in-time compiler and drop-in replacement for Lua 5.1 (MinGW Windows)
 License:        spdx:MIT
 URL:            http://luajit.org/
