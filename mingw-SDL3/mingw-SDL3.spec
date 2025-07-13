@@ -3,13 +3,13 @@
 
 Name:           mingw-SDL3
 Version:        3.2.16
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        MinGW Windows port of SDL3 cross-platform multimedia library
 
 License:        Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 OR MIT)
 URL:            https://www.libsdl.org/
 Source0:        https://www.libsdl.org/release/SDL3-%{version}.tar.gz
-Patch0:         0001-cmake-Check-malloc.h-for-alloca-implementation-when-.patch
+Patch0:         0001-cmake-disable-alloca-for-MinGW-builds.patch
 
 BuildArch:      noarch
 
@@ -170,6 +170,9 @@ rm -rf %{buildroot}%{ucrt64_datadir}/licenses
 %{ucrt64_libdir}/cmake/SDL3/*static*
 
 %changelog
+* Sun Jul 13 2025 Jack Greiner <jack@emoss.org> - 3.2.16-3
+- Add patch to bruteforce disable alloca on mingw builds
+
 * Sun Jul 13 2025 Jack Greiner <jack@emoss.org> - 3.2.16-2
 - Add UCRT64 build
 - Add patch to fix alloca detection
