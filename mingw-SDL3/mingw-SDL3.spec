@@ -9,7 +9,7 @@ Summary:        MinGW Windows port of SDL3 cross-platform multimedia library
 License:        Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 OR MIT)
 URL:            https://www.libsdl.org/
 Source0:        https://www.libsdl.org/release/SDL3-%{version}.tar.gz
-Patch0:         0001-cmake-disable-alloca-for-MinGW-builds.patch
+Patch0:         0001-Forcefully-disable-alloca-support.patch
 
 BuildArch:      noarch
 

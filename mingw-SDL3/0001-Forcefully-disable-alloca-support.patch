@@ -1,0 +1,34 @@
+From a79ec024db7d9a8059b89666fad018d522b4d42b Mon Sep 17 00:00:00 2001
+From: Jack Greiner <jack@emoss.org>
+Date: Sun, 13 Jul 2025 18:22:46 -0400
+Subject: [PATCH] Forcefully disable alloca support.
+
+This is a hacky patch. Don't use this.
+---
+ CMakeLists.txt | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b891873c6..f24634c80 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -988,15 +988,7 @@ if(NOT HAVE_ARMNEON)
+   set(SDL_DISABLE_NEON 1)
+ endif()
+ 
+-set(SDL_DISABLE_ALLOCA 0)
+-check_include_file("alloca.h" "HAVE_ALLOCA_H")
+-if(MSVC)
+-  check_include_file("malloc.h" "HAVE_MALLOC_H")
+-  check_symbol_exists("_alloca" "malloc.h" _ALLOCA_IN_MALLOC_H)
+-  if(NOT HAVE_ALLOCA_H AND NOT _ALLOCA_IN_MALLOC_H)
+-    set(SDL_DISABLE_ALLOCA 1)
+-  endif()
+-endif()
++set(SDL_DISABLE_ALLOCA 1)
+ 
+ # TODO: Can't deactivate on FreeBSD? w/o LIBC, SDL_stdinc.h can't define anything.
+ if(SDL_LIBC)
+-- 
+2.50.1
+
