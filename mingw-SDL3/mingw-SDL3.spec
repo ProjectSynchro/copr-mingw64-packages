@@ -8,6 +8,7 @@ Summary:        MinGW Windows port of SDL3 cross-platform multimedia library
 License:        Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 OR MIT)
 URL:            http://www.libsdl.org/
 Source0:        http://www.libsdl.org/release/SDL3-%{version}.tar.gz
+Source1:        0001-cmake-Check-malloc.h-for-alloca-implementation-when-.patch
 
 BuildArch:      noarch
 
@@ -104,6 +105,7 @@ device.
 
 %prep
 %autosetup -p1 -n SDL3-%{version}
+%patch1 -p1
 
 
 %build
@@ -169,7 +171,8 @@ rm -rf %{buildroot}%{ucrt64_datadir}/licenses
 
 %changelog
 * Fri Jul 13 2025 Jack Greiner <jack@emoss.org> - 3.2.16-2
-- Update to 3.2.16
+- Add UCRT64 build
+- Add patch to fix alloca detection
 
 * Fri Jul 04 2025 Neal Gompa <ngompa@fedoraproject.org> - 3.2.16-1
 - Update to 3.2.16
