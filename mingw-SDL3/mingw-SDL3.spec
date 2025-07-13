@@ -105,7 +105,7 @@ device.
 
 %prep
 %autosetup -p1 -n SDL3-%{version}
-%patch1 -p1
+%patch 1 -p1
 
 
 %build
