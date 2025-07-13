@@ -8,7 +8,7 @@ Summary:        MinGW Windows port of SDL3 cross-platform multimedia library
 License:        Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 OR MIT)
 URL:            http://www.libsdl.org/
 Source0:        http://www.libsdl.org/release/SDL3-%{version}.tar.gz
-Source1:        0001-cmake-Check-malloc.h-for-alloca-implementation-when-.patch
+Patch0:         0001-cmake-Check-malloc.h-for-alloca-implementation-when-.patch
 
 BuildArch:      noarch
 
@@ -105,7 +105,6 @@ device.
 
 %prep
 %autosetup -p1 -n SDL3-%{version}
-%patch 1 -p1
 
 
 %build
